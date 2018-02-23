@@ -1,0 +1,25 @@
+Kod dosyaları içerikleri:
+distances.py:
+verilen iki vector için euclidean, canberra, braycurtis, manhattan, chessboard, cosine, correlation, dtw, percival uzaklık/benzerliklerini hesaplıyor ve bir dictionary olarak dönüyor. find_distances.py tarafından kullanılıyor.
+
+rhythm_similarity.py 	 
+burak abi'nin yazdığı timing_similarity hesabını yapan kod. find_distances.py tarafından çağrılıyor.
+
+find_distances.py        
+51_rhy1_per101559_fail gibi segmente edilmiş ses dosyalarını okuyup, ref-per bundleları kurup her bir ikili için 10 farklı distance/benzerlik hesaplayıp bunu results/ içine kaydeden kod. 51_rhy1 51_rhy2 gibi farklı gruplar farklı txt dosyalarına kaydedilir.
+
+create_matrices.py       
+results/'a kaydedilmiş bundleları okuyarak uzaklık ölçütlerini benzerliğe çevirir, ölçütleri normalize eder, tüm hatalı, hatasız icralardan ya da eşit sayıda hatalı hatasız icradan train ve test vectorlerini oluşturur. get_data ('all') ya da get_data('equal') çağırdığınızda kendisi geriye kalan tüm işlemleri handle ediyor. classification.py, outlier_detection.py ve feature_selection.py tarafından kullanılıyor.
+
+io_ops.py		 
+Verilen herhangi bir dictionary'nin dosyaya yazılması ve okunması için kullanılıyor.
+
+classification.py:       
+Supervised Classification algoritmalarının bulunduğu dosya. plot_linear_coefs methodunu çağırdığınızda linear regression uygulayarak, benzerlik ölçütlerinin katsayılarını pie-chart'ta gösteriyor. plot_method_accuracies'i çağırdığınızda tüm ML algorithmalarını train edip, test accuracyleri print ediyor ve sütun grafiğinde gösteriyor.
+
+feature_selection.py     
+variance threshold ve select from model(recursive selection) kullanarak feature elimination yapan metotları barındıran kod.
+
+outlier_detection.py     
+One-Class SVM, Robust covariance, Isolation Forest kullanarak verilen input data'da her bir input'un outlier olma olasılığını hesaplayan kod. Fakat outlier elemesini classification metotlarını çağırmadan önce yapmadım. Outlier olma olasılığı %30'un üzerinde olan 295 sample var (53bin içinde)
+
