@@ -16,12 +16,13 @@ sudo ./waf install
 ```
 
 ## Dependencies
+```
 sklearn
 numpy
 scipy
 essentia
 python >= 2.7
-
+```
 
 ## Sample datasets
 Test datasets will be provided.
